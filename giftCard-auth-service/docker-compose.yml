@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  giftCard-auth-service:
+    image: postgres:latest
+    container_name: giftCard-auth-service
+    environment:
+      POSTGRES_DB: giftCard-auth-service
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminpassword
+    ports:
+      - "5432:5432"
+    restart: always
