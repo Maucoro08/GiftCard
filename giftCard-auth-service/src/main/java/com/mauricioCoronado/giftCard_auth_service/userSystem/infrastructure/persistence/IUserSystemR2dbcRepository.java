@@ -1,10 +1,9 @@
 package com.mauricioCoronado.giftCard_auth_service.userSystem.infrastructure.persistence;
 
-import com.mauricioCoronado.giftCard_auth_service.core.util.persistence.IBaseRepository;
+import com.mauricioCoronado.giftCard_auth_service.userSystem.domain.persistence.repository.IUserSystemRepository;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IUserSystemR2dbcRepository extends IBaseRepository<UserSystemR2dbcEntity,Long>,
-                                                    R2dbcRepository<UserSystemR2dbcEntity,Long> {
+public interface IUserSystemR2dbcRepository extends IUserSystemRepository<UserSystemR2dbcEntity>, R2dbcRepository<UserSystemR2dbcEntity,Long> {
 }

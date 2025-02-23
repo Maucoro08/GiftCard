@@ -87,4 +87,15 @@ class UserSystemR2dbcServiceIntegrationTest {
                 .expectNextCount(0)
                 .verifyComplete();
     }
+
+    @Test
+    void testFindByUsername() {
+        // Act
+        Mono<IUserSystem> result = service.findByUsername("user1");
+
+        // Assert
+        StepVerifier.create(result)
+                .expectNextMatches(u -> u.getUsername().equals("user1"))
+                .verifyComplete();
+    }
 }

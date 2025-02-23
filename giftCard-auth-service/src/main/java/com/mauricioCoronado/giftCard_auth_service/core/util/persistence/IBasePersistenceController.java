@@ -14,8 +14,8 @@ import reactor.core.publisher.Mono;
  * @param <DTO> DTO type for API communication.
  */
 @RestController
-public interface IBasePersistenceController<T extends IPersistable<ID>, ID, DTO> {
-    <S extends T> IBasePersistenceService<S, ID> getService(); // Provides access to service layer
+public interface IBasePersistenceController<T extends IPersistable<ID>, ID, R extends IBaseRepository<T,ID>, DTO> {
+     IBasePersistenceService<T, ID, R> getService(); // Provides access to service layer
     IBasePersistenceMapper<T, DTO> getMapper(); // Provides access to mapper
 
     /**

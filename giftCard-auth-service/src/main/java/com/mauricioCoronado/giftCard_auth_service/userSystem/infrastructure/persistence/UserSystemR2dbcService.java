@@ -11,5 +11,4 @@ public class UserSystemR2dbcService implements IUserSystemService {
 
    private final IUserSystemR2dbcRepository repo;
    private final IPasswordEncoder passwordEncoder;
-
 }
