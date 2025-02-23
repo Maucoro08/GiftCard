@@ -1,6 +1,9 @@
 package com.mauricioCoronado.giftCard_auth_service.infrastructure.persistence;
 
-import com.mauricioCoronado.giftCard_auth_service.domain.model.IUserSystem;
+import com.mauricioCoronado.giftCard_auth_service.userSystem.domain.model.IUserSystem;
+import com.mauricioCoronado.giftCard_auth_service.userSystem.infrastructure.persistence.IUserSystemR2dbcRepository;
+import com.mauricioCoronado.giftCard_auth_service.userSystem.infrastructure.persistence.UserSystemR2dbcEntity;
+import com.mauricioCoronado.giftCard_auth_service.userSystem.infrastructure.persistence.UserSystemR2dbcService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

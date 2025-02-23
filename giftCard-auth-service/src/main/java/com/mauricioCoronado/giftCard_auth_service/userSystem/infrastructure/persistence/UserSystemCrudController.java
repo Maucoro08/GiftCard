@@ -1,4 +1,4 @@
-package com.mauricioCoronado.giftCard_auth_service.infrastructure.persistence;
+package com.mauricioCoronado.giftCard_auth_service.userSystem.infrastructure.persistence;
 
 import com.mauricioCoronado.giftCard_auth_service.core.util.persistence.IBasePersistenceController;
 import lombok.Data;
