@@ -1,4 +1,4 @@
-package com.mauricioCoronado.giftCard_auth_service.infrastructure.persistence;
+package com.mauricioCoronado.giftCard_auth_service.userSystem.infrastructure.persistence;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
