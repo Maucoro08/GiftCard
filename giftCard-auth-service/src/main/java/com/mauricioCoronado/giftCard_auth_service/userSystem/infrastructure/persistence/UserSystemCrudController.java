@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Data
 @RestController
 @RequestMapping("/userSystem")
-public class UserSystemCrudController implements IBasePersistenceController<UserSystemR2dbcEntity,Long,UserSystemCrudDto> {
+public class UserSystemCrudController implements IBasePersistenceController<UserSystemR2dbcEntity,Long, IUserSystemR2dbcRepository, UserSystemCrudDto> {
 
     private final UserSystemR2dbcService service;
     private final UserSystemR2dbMapper mapper;

@@ -9,9 +9,9 @@ import reactor.core.publisher.Mono;
  * @param <T> The type of the entity, must implement IPersistable.
  * @param <ID> The type of the entity's identifier.
  */
-public interface IBasePersistenceService<T extends IPersistable<ID>, ID> {
+public interface IBasePersistenceService<T extends IPersistable<ID>, ID, R extends IBaseRepository<T,ID>> {
 
-    <K extends IBaseRepository<T, ID>>  K getRepo(); // Provides repository implementation
+    R getRepo(); // Provides repository implementation
 
     /**
      * Retrieves all entities.
