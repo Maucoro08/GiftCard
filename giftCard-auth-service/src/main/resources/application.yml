@@ -8,7 +8,7 @@ spring:
     password: adminpassword
 # Server configuration
 server:
-  port: 0
+  port: 5000
 
 # Eureka configuration
 eureka:
