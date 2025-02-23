@@ -5,4 +5,7 @@ import com.mauricioCoronado.giftCard_auth_service.core.util.persistence.IPersist
 public interface IUserSystem extends IPersistable<Long> {
     String getUsername();
     String getPassword();
+
+    void setPassword(String password);
+
 }
