@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class UserSystemR2dbcService implements IUserSystemService {
+public class UserSystemR2dbcService implements IUserSystemService<UserSystemR2dbcEntity,IUserSystemR2dbcRepository> {
 
    private final IUserSystemR2dbcRepository repo;
    private final IPasswordEncoder passwordEncoder;

@@ -17,4 +17,9 @@ public class PasswordEncoder implements IPasswordEncoder {
     public String encode(String pass) {
         return passwordEncoder.encode(pass);
     }
+
+    @Override
+    public boolean matches(String source, String target) {
+        return passwordEncoder.matches(source,target);
+    }
 }

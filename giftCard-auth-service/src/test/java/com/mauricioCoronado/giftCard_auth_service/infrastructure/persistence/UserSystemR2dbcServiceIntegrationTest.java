@@ -40,7 +40,7 @@ class UserSystemR2dbcServiceIntegrationTest {
     @Test
     void testFindAll() {
         // Act
-        Flux<IUserSystem> result = service.findAll();
+        Flux<UserSystemR2dbcEntity> result = service.findAll();
 
         // Assert
         StepVerifier.create(result)
@@ -51,7 +51,7 @@ class UserSystemR2dbcServiceIntegrationTest {
     @Test
     void testFindById() {
         // Act
-        Mono<IUserSystem> result = service.findById(1L);
+        Mono<UserSystemR2dbcEntity> result = service.findById(1L);
 
         // Assert
         StepVerifier.create(result)
@@ -65,7 +65,7 @@ class UserSystemR2dbcServiceIntegrationTest {
         UserSystemR2dbcEntity user = new UserSystemR2dbcEntity(null, "user3", "pass3");
 
         // Act
-        Mono<IUserSystem> result = service.save(user);
+        Mono<UserSystemR2dbcEntity> result = service.save(user);
 
         // Assert
         StepVerifier.create(result)
@@ -91,7 +91,7 @@ class UserSystemR2dbcServiceIntegrationTest {
     @Test
     void testFindByUsername() {
         // Act
-        Mono<IUserSystem> result = service.findByUsername("user1");
+        Mono<UserSystemR2dbcEntity> result = service.findByUsername("user1");
 
         // Assert
         StepVerifier.create(result)

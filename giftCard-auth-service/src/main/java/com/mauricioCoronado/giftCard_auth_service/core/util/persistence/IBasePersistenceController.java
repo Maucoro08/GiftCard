@@ -14,16 +14,23 @@ import reactor.core.publisher.Mono;
  * @param <DTO> DTO type for API communication.
  */
 @RestController
-public interface IBasePersistenceController<T extends IPersistable<ID>, ID, R extends IBaseRepository<T,ID>, DTO> {
-     IBasePersistenceService<T, ID, R> getService(); // Provides access to service layer
-    IBasePersistenceMapper<T, DTO> getMapper(); // Provides access to mapper
+public interface IBasePersistenceController<T extends IPersistable<ID>
+        , ID
+        , R extends IBaseRepository<T,ID>
+        , S extends IBasePersistenceService<T, ID, R>
+        , DTO
+        , M extends IBasePersistenceMapper<T, DTO>> {
+    S getService(); // Provides access to service layer
+    M getMapper(); // Provides access to mapper
 
     /**
      * Retrieves all entities as DTOs.
      */
     @GetMapping("/")
-    default ResponseEntity<Flux<DTO>> getAll() {
-        return ResponseEntity.ok(getMapper().map(getService().findAll()));
+    default Mono<ResponseEntity<Flux<DTO>>> getAll() {
+        Flux<DTO> dtoFlux = getService().findAll()
+                .map(entity -> getMapper().map(entity));
+        return Mono.just(ResponseEntity.ok(dtoFlux));
     }
     /**
      * Retrieves an entity by ID, returns 404 if not found.

@@ -37,7 +37,7 @@ class UserSystemR2dbcServiceTest {
         when(repo.findAll()).thenReturn(Flux.just(user1, user2));
 
         // Act
-        Flux<IUserSystem> result = service.findAll();
+        Flux<UserSystemR2dbcEntity> result = service.findAll();
 
         // Assert
         StepVerifier.create(result)
@@ -56,7 +56,7 @@ class UserSystemR2dbcServiceTest {
         when(repo.findById(id)).thenReturn(Mono.just(user));
 
         // Act
-        Mono<IUserSystem> result = service.findById(id);
+        Mono<UserSystemR2dbcEntity> result = service.findById(id);
 
         // Assert
         StepVerifier.create(result)
@@ -74,7 +74,7 @@ class UserSystemR2dbcServiceTest {
         when(repo.save(user)).thenReturn(Mono.just(savedUser));
 
         // Act
-        Mono<IUserSystem> result = service.save(user);
+        Mono<UserSystemR2dbcEntity> result = service.save(user);
 
         // Assert
         StepVerifier.create(result)
