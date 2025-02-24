@@ -53,3 +53,4 @@ spring:
             - Path=/manager/**
           filters:
             - RewritePath=/manager/(?<segment>.*), /$\{segment}
+            - name: AuthFilter
