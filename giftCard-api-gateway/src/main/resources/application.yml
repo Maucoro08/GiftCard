@@ -1,0 +1,56 @@
+# Application configuration
+application:
+  # Name of the application. This is the identifier that other services will use to register and discover this service in the Eureka server.
+  name: giftCard-api-gateway
+
+# Server configuration
+server:
+  # Port on which the application will run. Port 4040 is the standard port for Eureka servers.
+  port: 4040
+
+# Eureka configuration
+eureka:
+  client:
+    # Indicates whether this service should register with the Eureka server. In this case, it is disabled.
+    register-with-eureka: false
+    service-url:
+      # URL of the Eureka server. This service will connect to Eureka at this URL to discover other services.
+      defaultZone: http://localhost:8761/eureka/
+
+# Gateway configuration
+spring:
+  cloud:
+    gateway:
+      routes:
+        # Route configuration to access the Eureka UI through the Gateway.
+        - id: eureka-ui
+          # URI of the Eureka server. Requests will be redirected to this URL.
+          uri: http://localhost:8761
+          # Predicate that defines when this route will be activated. In this case, it will be activated for any path starting with `/eureka/`.
+          predicates:
+            - Path=/eureka-ui/**
+          # Filter that rewrites the request path to remove the `/eureka` prefix before redirecting it to the Eureka server.
+          filters:
+            - RewritePath=/eureka-ui/(?<segment>.*), /$\{segment}
+        # Route configuration to access the Eureka UI through the Gateway.
+        - id: eureka-static
+          # URI of the Eureka server. Requests will be redirected to this URL.
+          uri: http://localhost:8761
+          # Predicate that defines when this route will be activated. In this case, it will be activated for any path starting with `/eureka/`.
+          predicates:
+            - Path=/eureka/**
+#        --------------------------------------
+        - id: giftCard-auth-userSystem
+          uri: lb://giftCard-auth-service
+          predicates:
+            - Path=/access/**
+          filters:
+            - RewritePath=/access/(?<segment>.*), /$\{segment}
+#        --------------------------------------
+        - id: giftCard-manager
+          uri: lb://giftCard-manager
+          predicates:
+            - Path=/manager/**
+          filters:
+            - RewritePath=/manager/(?<segment>.*), /$\{segment}
+            - name: AuthFilter

@@ -1,0 +1,20 @@
+# Application configuration
+application:
+  # Name of the application. This is the identifier that other services will use to register and discover this service in the Eureka server.
+  name: giftCard-discovery-server
+
+# Server configuration
+server:
+  # Port on which the application will run. Port 8761 is the standard port for Eureka servers.
+  port: 8761
+
+# Eureka configuration
+eureka:
+  client:
+    # Indicates whether the application should register itself with the Eureka server.
+    # Set to false because this is the Eureka server itself and does not need to register with itself.
+    register-with-eureka: false
+
+    # Indicates whether the application should fetch the service registry from Eureka.
+    # Set to false because this server does not need to fetch the registry from itself.
+    fetch-registry: false
