@@ -9,6 +9,8 @@ spring:
 # Server configuration
 server:
   port: 5000
+  error:
+    include-stacktrace: never
 
 # Eureka configuration
 eureka:
