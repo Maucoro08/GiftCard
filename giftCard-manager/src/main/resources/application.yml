@@ -1,0 +1,23 @@
+# Application configuration
+spring:
+  application:
+    name: giftCard-manager
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5433/giftCard-manager
+    username: admin
+    password: adminpassword
+# Server configuration
+server:
+  port: 5001
+  error:
+    include-stacktrace: never
+
+# Eureka configuration
+eureka:
+  instance:
+    instance-id: "${spring.application.name}:${random.value}"
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
