@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -16,7 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 @Table("users_system")
-public class GiftCardR2dbcEntity implements IGiftCard {
+public class GiftCardR2dbcEntity implements Serializable, IGiftCard {
 
     @Id
     private Long id;
