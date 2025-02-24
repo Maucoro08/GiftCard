@@ -13,7 +13,7 @@ spring:
     password: adminpassword
 # Server configuration
 server:
-  port: 5000
+  port: 0
 #  error:
 #    include-stacktrace: never
 
