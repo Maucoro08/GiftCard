@@ -31,6 +31,13 @@ public interface IAuthService<T extends IUserSystem ,R extends IUserSystemReposi
                 })
                 .onErrorResume(ResponseStatusException.class, Mono::error);
     }
+    default Mono<IToken> validateToken(IToken token) {
+        return Mono.fromCallable(() -> getJwtHelper().validateToken(token.getAccessToken()))
+                .flatMap(isValid -> {
+                    if (isValid) return Mono.just(getJwtHelper().builderToken(token.getAccessToken()));
+                    else return Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED, USER_EXCEPTION_MSG));
+                });
+    }
     default void validPassword(T source, T target) {
         if (!getPasswordEncoder().matches(source.getPassword(), target.getPassword())) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, USER_EXCEPTION_MSG);
