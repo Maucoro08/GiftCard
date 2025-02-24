@@ -1,5 +1,8 @@
 package com.mauricioCoronado.giftCard_manager.giftCard.infrastructure;
 
+import com.mauricioCoronado.giftCard_manager.giftCard.infrastructure.persistence.GiftCardR2dbcEntity;
+import com.mauricioCoronado.giftCard_manager.giftCard.infrastructure.persistence.GiftCardR2dbcService;
+import com.mauricioCoronado.giftCard_manager.giftCard.infrastructure.persistence.IGiftCardR2dbcRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

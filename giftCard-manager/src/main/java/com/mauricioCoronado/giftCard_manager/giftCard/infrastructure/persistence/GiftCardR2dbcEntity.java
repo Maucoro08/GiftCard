@@ -1,4 +1,4 @@
-package com.mauricioCoronado.giftCard_manager.giftCard.infrastructure;
+package com.mauricioCoronado.giftCard_manager.giftCard.infrastructure.persistence;
 
 import com.mauricioCoronado.giftCard_manager.giftCard.domain.model.IGiftCard;
 import lombok.AllArgsConstructor;

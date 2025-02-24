@@ -1,4 +1,4 @@
-package com.mauricioCoronado.giftCard_manager.giftCard.infrastructure;
+package com.mauricioCoronado.giftCard_manager.giftCard.infrastructure.persistence;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
