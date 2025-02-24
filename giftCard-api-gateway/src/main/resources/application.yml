@@ -39,3 +39,18 @@ spring:
           # Predicate that defines when this route will be activated. In this case, it will be activated for any path starting with `/eureka/`.
           predicates:
             - Path=/eureka/**
+#        --------------------------------------
+        - id: giftCard-auth-userSystem
+          uri: lb://giftCard-auth-service
+          predicates:
+            - Path=/access/**
+          filters:
+            - RewritePath=/access/(?<segment>.*), /$\{segment}
+#        --------------------------------------
+        - id: giftCard-manager
+          uri: lb://giftCard-manager
+          predicates:
+            - Path=/manager/**
+          filters:
+            - RewritePath=/manager/(?<segment>.*), /$\{segment}
+            - name: AuthFilter
