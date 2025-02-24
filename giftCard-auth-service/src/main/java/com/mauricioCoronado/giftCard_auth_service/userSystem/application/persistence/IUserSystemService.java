@@ -14,9 +14,12 @@ public interface IUserSystemService<T extends IUserSystem ,R extends IUserSystem
 
     @Override
     default Mono<T> save(T object) {
-        String password = getPasswordEncoder().encode(object.getPassword());
-        object.setPassword(password);
-        return IBasePersistenceService.super.save(object);
+        return Mono.just(object)
+                .flatMap(obj -> {
+                    String encodedPassword = getPasswordEncoder().encode(obj.getPassword());
+                    obj.setPassword(encodedPassword);
+                    return IBasePersistenceService.super.save(obj);
+                });
     }
 
     default Mono<T> findByUsername(String username) {

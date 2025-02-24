@@ -10,4 +10,6 @@ public interface IGiftCard extends IPersistable<Long> {
     BigDecimal getAmount();
     LocalDate getDateCreation();
     LocalDate getDateExpiration();
+
+    void setDateCreation(LocalDate dateCreation);
 }
