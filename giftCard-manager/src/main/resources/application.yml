@@ -8,9 +8,9 @@ spring:
     password: adminpassword
 # Server configuration
 server:
-  port: 5001
-  error:
-    include-stacktrace: never
+  port: 5000
+#  error:
+#    include-stacktrace: never
 
 # Eureka configuration
 eureka:
