@@ -8,7 +8,7 @@ import com.mauricioCoronado.giftCard_auth_service.userSystem.domain.persistence.
 import com.mauricioCoronado.giftCard_auth_service.userSystem.domain.service.IPasswordEncoder;
 import reactor.core.publisher.Mono;
 
-public interface IUserSystemService<T extends IUserSystem > extends IBasePersistenceService<T,Long, IUserSystemRepository<T>> {
+public interface IUserSystemService<T extends IUserSystem ,R extends IUserSystemRepository<T>> extends IBasePersistenceService<T,Long, R> {
 
     IPasswordEncoder getPasswordEncoder();
 
