@@ -6,11 +6,16 @@ spring:
     url: r2dbc:postgresql://localhost:5433/giftCard-manager
     username: admin
     password: adminpassword
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: adminpassword
 # Server configuration
 server:
-  port: 5001
-  error:
-    include-stacktrace: never
+  port: 5000
+#  error:
+#    include-stacktrace: never
 
 # Eureka configuration
 eureka:
