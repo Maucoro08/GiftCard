@@ -3,14 +3,14 @@ spring:
   application:
     name: giftCard-manager
   r2dbc:
-    url: r2dbc:postgresql://localhost:5433/giftCard-manager
-    username: admin
-    password: adminpassword
+    url: ${DB_URL:r2dbc:postgresql://localhost:5433/giftCard-manager}
+    username: ${DB_USERNAME:admin}
+    password: ${DB_PASSWORD:adminpassword}
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: adminpassword
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:admin}
+    password: ${RABBITMQ_PASSWORD:adminpassword}
 # Server configuration
 server:
   port: 0
@@ -23,6 +23,6 @@ eureka:
     instance-id: "${spring.application.name}:${random.value}"
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
 
 

@@ -15,7 +15,7 @@ eureka:
     register-with-eureka: false
     service-url:
       # URL of the Eureka server. This service will connect to Eureka at this URL to discover other services.
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
 
 # Gateway configuration
 spring:
@@ -25,7 +25,7 @@ spring:
         # Route configuration to access the Eureka UI through the Gateway.
         - id: eureka-ui
           # URI of the Eureka server. Requests will be redirected to this URL.
-          uri: http://localhost:8761
+          uri: ${EUREKA_URL:http://localhost:8761}
           # Predicate that defines when this route will be activated. In this case, it will be activated for any path starting with `/eureka/`.
           predicates:
             - Path=/eureka-ui/**
@@ -35,7 +35,7 @@ spring:
         # Route configuration to access the Eureka UI through the Gateway.
         - id: eureka-static
           # URI of the Eureka server. Requests will be redirected to this URL.
-          uri: http://localhost:8761
+          uri: ${EUREKA_URL:http://localhost:8761}
           # Predicate that defines when this route will be activated. In this case, it will be activated for any path starting with `/eureka/`.
           predicates:
             - Path=/eureka/**
